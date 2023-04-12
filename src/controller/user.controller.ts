@@ -75,7 +75,7 @@ export class UserController extends BaseController<User> {
   }
 
   @ApiResponse({ type: User })
-  @Post('/limit', { description: 'LIMIT查询' })
+  @Post('/limit', { description: 'LIMIT 查询' })
   async limit(@Body() map: Map<string, any>) {
     return super.limit(map);
   }

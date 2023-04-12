@@ -1,6 +1,6 @@
 import { MidwayConfig } from '@midwayjs/core';
 import { User } from '../entity/user';
-
+console.log(process.env.MYSQL_USERNAME);
 export default {
   // use for cookie sign key, should change to your own and keep security
   keys: '1656642815846_4983',
@@ -13,7 +13,7 @@ export default {
   koa: {
     port: 7001,
   },
-  // ORM和数据库配置
+  // ORM 和数据库配置
   typeorm: {
     dataSource: {
       default: {
@@ -24,12 +24,12 @@ export default {
         password: process.env.MYSQL_PASSWORD,
         database: process.env.MYSQL_DATABASE,
         synchronize: true, // 如果第一次使用，不存在表，有同步的需求可以写 true
-        logging: true,
+        logging: false,
         entities: [User],
       },
     },
   },
-  // redis配置
+  // redis 配置
   redis: {
     client: {
       host: process.env.REDIS_HOST,
@@ -38,12 +38,12 @@ export default {
       db: process.env.REDIS_DB,
     },
   },
-  // jwt配置
+  // jwt 配置
   jwt: {
     secret: 'setscrew',
     expiresIn: 60 * 60 * 24,
   },
-  // swagger配置
+  // swagger 配置
   swagger: {
     title: 'midway-boot',
     description: 'Midway 脚手架',
