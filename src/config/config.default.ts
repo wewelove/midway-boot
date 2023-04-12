@@ -1,5 +1,5 @@
 import { MidwayConfig } from '@midwayjs/core';
-import {User} from '../entity/user'
+import { User } from '../entity/user';
 
 export default {
   // use for cookie sign key, should change to your own and keep security
@@ -22,19 +22,20 @@ export default {
         port: 3306,
         username: process.env.MYSQL_USERNAME,
         password: process.env.MYSQL_PASSWORD,
-        database: 'midway_boot',
+        database: process.env.MYSQL_DATABASE,
         synchronize: true, // 如果第一次使用，不存在表，有同步的需求可以写 true
         logging: true,
         entities: [User],
-      }
-    }
+      },
+    },
   },
   // redis配置
   redis: {
     client: {
       host: process.env.REDIS_HOST,
       port: process.env.REDIS_PORT,
-      db: 0,
+      password: process.env.REDIS_PASSWORD,
+      db: process.env.REDIS_DB,
     },
   },
   // jwt配置
@@ -45,7 +46,7 @@ export default {
   // swagger配置
   swagger: {
     title: 'midway-boot',
-    description: 'Midway脚手架',
+    description: 'Midway 脚手架',
     auth: {
       authType: 'bearer',
     },
@@ -55,7 +56,7 @@ export default {
     allowHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
     credentials: true,
-    origin: (req) => req.headers.origin,
+    origin: (req: any) => req.headers.origin,
   },
   // 日志配置
   midwayLogger: {
@@ -69,5 +70,5 @@ export default {
         consoleLevel: 'debug',
       },
     },
-  }
+  },
 } as MidwayConfig;
