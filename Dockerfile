@@ -4,7 +4,7 @@ ENV TZ="Asia/Shanghai"
 
 COPY . .
 
-RUN npm install --registry=https://registry.npm.taobao.org
+RUN npm install --registry=http://registry.npmmirror.com
 RUN npm run build
 RUN npm prune --production
 
