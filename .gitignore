@@ -17,3 +17,4 @@ run/
 .serverless
 serverless.zip
 artifact.zip
+.env.local
