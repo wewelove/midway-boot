@@ -1,6 +1,6 @@
 import { ApiProperty } from '@midwayjs/swagger';
-import {PickDto} from '@midwayjs/validate'
-import {User} from '../../entity/user'
+import { PickDto } from '@midwayjs/validate';
+import { User } from '../../entity/user';
 
 /**
  * 登陆成功后返回的VO

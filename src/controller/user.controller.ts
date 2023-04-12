@@ -31,9 +31,9 @@ export class UserController extends BaseController<User> {
   @ApiResponse({ type: User })
   @Post('/create', { description: '创建' })
   async create(@Body() user: User): Promise<User> {
-    Assert.isTrue(user.username !== null, ErrorCode.UN_ERROR, 'username不能为空');
-    Assert.isTrue(user.password !== null, ErrorCode.UN_ERROR, 'password不能为空');
-    Assert.isTrue(user.phoneNum !== null, ErrorCode.UN_ERROR, 'phoneNum不能为空');
+    Assert.isTrue(user.username !== null, ErrorCode.UN_ERROR, 'username 不能为空');
+    Assert.isTrue(user.password !== null, ErrorCode.UN_ERROR, 'password 不能为空');
+    Assert.isTrue(user.phoneNum !== null, ErrorCode.UN_ERROR, 'phoneNum 不能为空');
     const { userId } = this.ctx.userContext;
     Object.assign(user, {
       regtime: new Date(),
